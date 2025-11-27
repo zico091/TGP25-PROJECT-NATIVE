@@ -93,7 +93,6 @@ function searchProducts() {
 }
 
 // -----------------------------
-// Initialize everything
 loadProducts();
 loadCategories();
 searchProducts();
@@ -103,26 +102,4 @@ searchProducts();
 
 
 
-//Search products
-//Search products
-// searchProducts(
-//     // TODO: listen for input event on search field
-//     // TODO: filter products by name
-//     // TODO: re-display filtered products
-
-// )
-//--------------------------------------------------------//
-
-//Filter products by category
-//Filter products by category
-// filterByCategory(
-//     // TODO: filter products based on selected category
-
-// )
-//--------------------------------------------------------//
-
-//Show product details on click
-//Show product details on click
-// showProductDetails()
-//--------------------------------------------------------//
 
