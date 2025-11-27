@@ -22,7 +22,7 @@ function displayProducts(productsArray) {
   productsArray.forEach(product => {
     const productCard = document.createElement('div');
     productCard.className =
-      'w-full max-w-sm bg-white border border-blue-200 rounded-xl shadow p-4 flex flex-col items-center';
+      'w-full max-w-sm mx-auto bg-white border border-blue-200 rounded-xl shadow p-4 flex flex-col items-center';
     productCard.innerHTML = `
       <img src="${product.image}" class="h-40 object-contain mb-4" alt="productImage">
       <h2 class="text-lg font-bold text-blue-900 mb-2 text-center">${product.title}</h2>
@@ -93,10 +93,36 @@ function searchProducts() {
 }
 
 // -----------------------------
+// Initialize everything
+loadProducts();
+loadCategories();
+searchProducts();
 
 
 //--------------------------------------------------------//
 
 
 
+//Search products
+//Search products
+// searchProducts(
+//     // TODO: listen for input event on search field
+//     // TODO: filter products by name
+//     // TODO: re-display filtered products
+
+// )
+//--------------------------------------------------------//
+
+//Filter products by category
+//Filter products by category
+// filterByCategory(
+//     // TODO: filter products based on selected category
+
+// )
+//--------------------------------------------------------//
+
+//Show product details on click
+//Show product details on click
+// showProductDetails()
+//--------------------------------------------------------//
 
