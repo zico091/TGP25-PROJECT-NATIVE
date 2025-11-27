@@ -60,24 +60,40 @@ async function loadCategories() {
   const categories = await res.json();
 
   const categoryChip = document.getElementById('categoryChip');
+  const buttons = [];
+
+  const activeClass = 'py-2 px-4 bg-blue-900 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors';
+  const inactiveClass = 'py-2 px-4 bg-white text-blue-900 border border-blue-900 font-bold rounded-xl hover:bg-blue-700 hover:text-white transition-colors';
+
+  function setActive(clickedBtn) {
+    buttons.forEach(btn => {
+      btn.className = btn === clickedBtn ? activeClass : inactiveClass;
+    });
+  }
 
   // All button
   const allButton = document.createElement('button');
   allButton.textContent = 'All';
-  allButton.className = 'py-2 px-4 bg-blue-900 hover:bg-blue-700 text-white font-bold rounded-xl';
-  allButton.addEventListener('click', () => displayProducts(products));
+  allButton.className = activeClass;
+  allButton.addEventListener('click', () => {
+    displayProducts(products);
+    setActive(allButton);
+  });
   categoryChip.appendChild(allButton);
+  buttons.push(allButton);
 
   // Other categories
   categories.forEach(category => {
     const btn = document.createElement('button');
     btn.textContent = capitalizeFirstLetter(category);
-    btn.className = 'py-2 px-4 bg-blue-900 hover:bg-blue-700 text-white font-bold rounded-xl';
+    btn.className = inactiveClass;
     btn.addEventListener('click', () => {
       const filtered = products.filter(p => p.category === category);
       displayProducts(filtered);
+      setActive(btn);
     });
     categoryChip.appendChild(btn);
+    buttons.push(btn);
   });
 }
 
